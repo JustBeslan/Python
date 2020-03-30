@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+</head>
+<body>
+	<form action="/country_update/{{instance.id}}">
+		<h1><i>Название : </i>{{instance.name}}</a></h1>
+		<h2><i>Население : </i>{{instance.population}}</h2>
+		<h2><input type="submit" value="Изменить"></h2>
+	</form>
+	<p><input type="button" value="Удалить" onclick="location.href = '/country_delete/{{instance.id}}'"></p>
+</body>
+</html>

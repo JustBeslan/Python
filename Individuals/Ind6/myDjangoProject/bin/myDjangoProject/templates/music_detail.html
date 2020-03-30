@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+</head>
+<body>
+	<form action="/music_update/{{instance.id}}">
+		<h1><i>Имя произведения : </i>{{instance.name}}</h1>
+		<h2><i>Автор : </i>{{instance.musician}}</h2>
+		<h2><i>Стиль : </i>{{instance.musicStyle}}</h2>
+		<h2><i>Описание : </i>{{instance.description}}</h2>
+		<h2><i>Время выкладывания : </i>{{instance.timestamp}}</h2>
+		<h2><i>Время последнего обновления : </i>{{instance.updated}}</h2>
+		<p><input type="submit" value="Изменить"></p>
+	</form>
+	<p><input type="button" value="Удалить" onclick="location.href = '/music_delete/{{instance.id}}'"></p>
+</body>
+</html>

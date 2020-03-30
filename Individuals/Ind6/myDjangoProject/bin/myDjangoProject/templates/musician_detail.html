@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+</head>
+<body>
+	<form action="/musician_update/{{instance.id}}">
+		<h1><i>Имя музыканта : </i>{{instance.first_name}} {{instance.second_name}}</h1>
+		<h2><i>First Name : </i>{{instance.first_name}}</h2>
+		<h2><i>Second Name : </i>{{instance.second_name}}</h2>
+		<h2><i>Дата рождения : </i>{{instance.dateOfBirth}}</h2>
+		<h2><input type="submit" value="Изменить"></h2>
+	</form>
+	<p><input type="button" value="Удалить" onclick="location.href = '/musician_delete/{{instance.id}}'"></p>
+
+</body>
+</html>

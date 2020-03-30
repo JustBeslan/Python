@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная страница</title>
+	<style type="text/css">
+		.tabs {
+			min-width: 320px;
+			max-width: 800px;
+			padding: 0px;
+			margin: 0 auto;
+		}
+		/* Стили секций с содержанием */
+		.tabs>section {
+			display: none;
+			padding: 15px;
+			background: #fff;
+			border: 1px solid #ddd;
+		}
+		.tabs>section>p {
+			margin: 0 0 5px;
+			line-height: 1.5;
+			color: #383838;
+			/* прикрутим анимацию */
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+		/* Прячем чекбоксы */
+		.tabs>input {
+			display: none;
+			position: absolute;
+		}
+		/* Стили переключателей вкладок (табов) */
+		.tabs>label {
+			display: inline-block;
+			margin: 0 0 -1px;
+			padding: 15px 25px;
+			font-weight: 600;
+			text-align: center;
+			color: #aaa;
+			border: 0px solid #ddd;
+			border-width: 1px 1px 1px 1px;
+			background: #f1f1f1;
+			border-radius: 3px 3px 0 0;
+		}
+		.tabs>label:before {
+			font-family: fontawesome;
+			font-weight: normal;
+			margin-right: 10px;
+		}
+		/* Изменения стиля переключателей вкладок при наведении */
+		 
+		.tabs>label:hover {
+			color: #888;
+			cursor: pointer;
+		}
+		/* Стили для активной вкладки */
+		.tabs>input:checked+label {
+			color: #555;
+			border-top: 1px solid #009933;
+			border-bottom: 1px solid #fff;
+			background: #fff;
+		}
+		/* Активация секций с помощью псевдокласса :checked */
+		#tab1:checked~#content-tab1, 
+		#tab2:checked~#content-tab2, 
+		#tab3:checked~#content-tab3, 
+		#tab4:checked~#content-tab4 {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="tabs">
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1" title="Music">Music</label>
+ 
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2" title="Musician">Musician</label>
+ 
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3" title="Country">Country</label>
+ 
+    <input id="tab4" type="radio" name="tabs">
+    <label for="tab4" title="Music Style">Music Style</label>
+
+    <section id="content-tab1">
+		{% for i in MusicSet %}
+		<form action="/music_create/">
+			<fieldset>
+				<legend><i>Имя произведения : </i><a href="/music_detail/{{i.id}}">{{i.name}}</a></legend>
+	 			<p><i>Время выкладывания : </i>{{i.timestamp}}</p>
+				<p><i>Время последнего обновления : </i>{{i.updated}}</p>
+			</fieldset>
+			{% endfor %}
+			<p><input type="submit" value="Создать новую запись"></p>
+		</form>
+	</section>  
+    <section id="content-tab2">
+    	<form action="/musician_create/">
+			{% for i in MusicianSet %}
+			<fieldset>
+				<legend><i>Имя музыканта : </i><a href="/musician_detail/{{i.id}}">{{i.first_name}} {{i.second_name}}</a></legend>
+				<p><i>First Name : </i>{{i.first_name}}</p>
+				<p><i>Second Name : </i>{{i.second_name}}</p>
+			</fieldset>
+			{% endfor %}
+			<p><input type="submit" value="Создать новую запись"></p>    		
+    	</form>
+    </section> 
+    <section id="content-tab3">
+    	<form action="/country_create/">
+			{% for i in CountrySet %}
+			<fieldset>
+				<legend><i>Название : </i><a href="/country_detail/{{i.id}}">{{i.name}}</a></legend>
+				<p><i>Население : </i>{{i.population}}</p>
+			</fieldset>
+			{% endfor %}
+			<p><input type="submit" value="Создать новую запись"></p>
+    	</form>
+    </section>
+    <section id="content-tab4">
+    	<form action="/musicStyle_create/">
+			{% for i in MusicStyleSet %}
+			<fieldset>
+				<legend><i>Название : </i><a href="/musicStyle_detail/{{i.id}}">{{i.name}}</a></legend>
+				<p><i>Зародилась  в : </i>{{i.country}}</p>
+			</fieldset>
+			{% endfor %}
+			<p><input type="submit" value="Создать новую запись"></p>		    		
+    	</form>
+    </section>    
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+1.
+	создать проект джанго
+
+2.
+
+Python3 Django-admin.py
+Startproject projectname
+
+Python3 manage.py runserver
+ 127.0.0.1:8000
+
+Python3 manage.py migrate
+Python3 manage.py make migrations
+
+Python3 manage.py createsuperuser
+
+Python3 manage.py startapp posts
+
+Settings.py добавить приложение в INSTALLED_APPS
+

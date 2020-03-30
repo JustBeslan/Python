@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+</head>
+<body>
+	<form action="/musicStyle_update/{{instance.id}}">
+		<h1><i>Название : </i>{{instance.name}}</h1>
+		<h2><i>Зародилась  в : </i>{{instance.country}}</h2>
+		<h2><i>Описание : </i>{{instance.description}}</h2>
+		<p><input type="submit" value="Изменить"></p>
+	</form>
+	<p><input type="button" value="Удалить" onclick="location.href = '/musicStyle_delete/{{instance.id}}'"></p>
+</body>
+</html>
